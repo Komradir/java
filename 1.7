@@ -1,0 +1,54 @@
+package dima.baianov;
+import java.util.*;
+public class Main {
+
+
+    public static void main(String[] args) {
+        boolean[] massyv = new boolean[32];
+
+        for (int index = 0; index < massyv.length; index++) {
+            massyv[index] = new Random().nextBoolean();
+        }
+        System.out.println("Оригинальный массив 1:");
+        for (boolean element : massyv) {
+            System.out.println(element);
+            System.out.println("------------");
+
+        }
+
+        for (int index = 0; index < massyv.length; index++) {
+            if (index != 31)
+                massyv[index] = massyv[index + 1];
+            else
+                massyv[index] = new Random().nextBoolean();
+        }
+        System.out.println("Массив 1 смещённый на один символ:");
+        for (boolean element : massyv) {
+            System.out.println(element);
+            System.out.println("+++++++++++");
+
+        }
+        boolean[] massyv2 = new boolean[32];
+
+        for (int index = 0; index < massyv2.length; index++) {
+            massyv2[index] = new Random().nextBoolean();
+
+            System.out.println("Оригинальный массив 2:");
+            for (boolean element : massyv2) {
+                System.out.println(element);
+                System.out.println("----------");
+
+            }
+
+            for (int index = 0; index < massyv.length; index++) { // почему-то ругается на index, хотя он уже несколько раз был в коде в таких-же условиях.
+                massyv2[index] = !massyv2[index];
+            }
+            System.out.println("Массив 2 c заменой значений на противоположные:");
+            for (boolean element : massyv2) {
+                System.out.println(element);
+                System.out.println("++++++++++");
+
+            }
+        }
+    }
+}
